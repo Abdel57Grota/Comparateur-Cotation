@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Calcul mensualité crédit (taux fixe)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link href="static/css/bootstrap-3.3.1.min.css" rel="stylesheet">
+  <link href="static/css/font-awesome-4.4.0.min.css" rel="stylesheet">
+  <link href="static/css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href=""><i class="fa fa-calculator"></i> Cotation Compatrateur</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href=""> <i class="fa fa-home"></i> Cotation Compatrateur</a></li>
+          <!-- <li><a href="index2.html"><i class="fa fa-github-alt"></i> Cotation Compatrateur</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <hr>
+      <h3>Consommations et puissance de votre site</h3>
+      <hr>
+
+
+      <div class="hidden-xs col-md-12">
+
+      </div>
+    </div>
+    <form id="calculator-form">
+      <div class="row">
+
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>N° du RAE</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="RAE">
+            <div class="input-group-addon">14 chiffre</div>
+          </div>
+        </div>
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>DATE_ECHEANCE</label>
+          <div class="input-group input-group-lg">
+            <input type="date" class="form-control" id="DATE_ECHEANCE">
+            <div class="input-group-addon">Nbr</div>
+          </div>
+        </div>
+
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>ACHEMINEMENT</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="ACHEMINEMENT">
+            <div class="input-group-addon">Nbr</div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <hr>
+      <h3>PUISSANCE SOUSCRITE KVA</h3>
+      <hr>
+
+      <div class="row">
+
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>PUISSANCE_HPH</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="PUISSANCE_HPH">
+            <div class="input-group-addon">KVA</div>
+          </div>
+        </div>
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>PUISSANCE_HCH</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="PUISSANCE_HCH">
+            <div class="input-group-addon">KVA</div>
+          </div>
+        </div>
+
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>PUISSANCE_HPE</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="PUISSANCE_HPE">
+            <div class="input-group-addon">KVA</div>
+          </div>
+        </div>
+
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>PUISSANCE_HCE</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="PUISSANCE_HCE">
+            <div class="input-group-addon">KVA</div>
+          </div>
+        </div>
+
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>COMPTAGE</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="COMPTAGE">
+            <div class="input-group-addon">KVA</div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <br>
+      <hr>
+      <h3>CONSOMMATIONS (EN MWh)</h3>
+      <hr>
+
+
+
+      <div class="row">
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>CONSOMMATIONS_POINTES</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="CONSOMMATIONS_POINTES">
+            <div class="input-group-addon">MWh</div>
+          </div>
+        </div>
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>CONSOMMATIONS_HPH</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="CONSOMMATIONS_HPH">
+            <div class="input-group-addon">MWh</div>
+          </div>
+        </div>
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>CONSOMMATIONS_HCH</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="CONSOMMATIONS_HCH">
+            <div class="input-group-addon">MWh</div>
+          </div>
+        </div>
+
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>CONSOMMATIONS_HPE</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="CONSOMMATIONS_HPE">
+            <div class="input-group-addon">MWh</div>
+          </div>
+        </div>
+
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>CONSOMMATIONS_HCE</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="CONSOMMATIONS_HCE">
+            <div class="input-group-addon">MWh</div>
+          </div>
+        </div>
+
+
+        <div class="form-group col-xs-6 col-md-4">
+          <label>CONSOMMATIONS_CAR</label>
+          <div class="input-group input-group-lg">
+            <input type="text" class="form-control" id="CONSOMMATIONS_CAR">
+            <div class="input-group-addon">MWh</div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="form-group col-xs-12">
+        <button type="button" class="btn btn-default btn-lg" onclick="energie();"><i class="fa fa-calculator"></i>
+          Calculer</button>
+      </div>
+    </form>
+    <br><br><br><br><br><br><br>
+
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+    </style>
+
+    <hr><img src="EDF (3).png">
+    <hr>
+
+    <div id="payementList">
+      <table class="form-group col-xs-12">
+        <thead>
+          <!------------------------------------------>
+          <tr>
+            <th>PART FOURNISSEUR</th>
+            <th>PRIX UNITAIRES</th>
+            <th>BUDGET ANNUEL HTVA</th>
+            <th>TVA APPLICABLE</th>
+            <th>BUDGET TTC</th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>ABONNEMENT</th>
+            <th><span id="ABONNEMENT_EDF"></span></th>
+            <th><span id="BUDGET_ANNUEL_EDF"></span></th>
+            <th>20%</th>
+            <th>  <span id="BUDGET_ANNUEL_TTC_EDF"></span>     </th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX POINTES</th>
+            <th><span id="PRIX_POINTES_EDF"></span></th>
+            <th><span id="PRIX_POINTES_ANNNUEL_EDF"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_POINTES_ANNNUEL_TTC_EDF"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX HPH €/MWh</th>
+            <th><span id="PRIX_HPH_EDF"></span></th>
+            <th><span id="PRIX_HPH_ANNUEL_EDF"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HPH_ANNUEL_TTC_EDF"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>Prix HCH €/MWh</th>
+            <th><span id="PRIX_HCH_EDF"></span></th>
+            <th><span id="PRIX_HCH_ANNUEL_EDF"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HCH_ANNUEL_TTC_EDF"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX HPE €/MWh</th>
+            <th><span id="PRIX_HPE_EDF"></span></th>
+            <th><span id="PRIX_HPE_ANNUEL_EDF"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HPE_ANNUEL_TTC_EDF"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX HCE €/MWh</th>
+            <th><span id="PRIX_HCE_EDF"></span></th>
+            <th><span id="PRIX_HCE_ANNUEL_EDF"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HCE_ANNUEL_TTC_EDF"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX CAPACITÉ</th>
+            <th><span id="PRIX_CAPACITE_EDF"></span></th>
+            <th><span id="PRIX_CAPACITE_ANNUEL_EDF"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_CAPACITE_ANNUEL_TTC_EDF"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX CEE</th>
+            <th><span id="PRIX_CEE_EDF"></span></th>
+            <th></th>
+            <th>20%</th>
+            <th></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>BUDGET TOTAL HTVA</th>
+            <th></th>
+            <th><span id="SOMME_ANNUEL_EDF"></span></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <!------------------------------------------>
+        </thead>
+        <tbody id="details">
+        </tbody>
+      </table>
+    </div>
+
+    <hr><img src="alterna.png">
+    <hr>
+
+    <div id="payementList">
+      <table class="form-group col-xs-12">
+        <thead>
+          <!------------------------------------------>
+          <tr>
+            <th>PART FOURNISSEUR</th>
+            <th>PRIX UNITAIRES</th>
+            <th>BUDGET ANNUEL HTVA</th>
+            <th>TVA APPLICABLE</th>
+            <th>BUDGET TTC</th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>ABONNEMENT</th>
+            <th><span id="ABONNEMENT_ALTERNA"></span></th>
+            <th><span id="BUDGET_ANNUEL_ALTERNA"></span></th>
+            <th>20%</th>
+            <th>  <span id="BUDGET_ANNUEL_TTC_ALTERNA"></span>     </th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX POINTES</th>
+            <th><span id="PRIX_POINTES_ALTERNA"></span></th>
+            <th><span id="PRIX_POINTES_ANNNUEL_ALTERNA"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_POINTES_ANNNUEL_TTC_ALTERNA"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX HPH €/MWh</th>
+            <th><span id="PRIX_HPH_ALTERNA"></span></th>
+            <th><span id="PRIX_HPH_ANNUEL_ALTERNA"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HPH_ANNUEL_TTC_ALTERNA"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>Prix HCH €/MWh</th>
+            <th><span id="PRIX_HCH_ALTERNA"></span></th>
+            <th><span id="PRIX_HCH_ANNUEL_ALTERNA"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HCH_ANNUEL_TTC_ALTERNA"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX HPE €/MWh</th>
+            <th><span id="PRIX_HPE_ALTERNA"></span></th>
+            <th><span id="PRIX_HPE_ANNUEL_ALTERNA"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HPE_ANNUEL_TTC_ALTERNA"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX HCE €/MWh</th>
+            <th><span id="PRIX_HCE_ALTERNA"></span></th>
+            <th><span id="PRIX_HCE_ANNUEL_ALTERNA"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HCE_ANNUEL_TTC_ALTERNA"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX CAPACITÉ</th>
+            <th><span id="PRIX_CAPACITE_ALTERNA"></span></th>
+            <th><span id="PRIX_CAPACITE_ANNUEL_ALTERNA"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_CAPACITE_ANNUEL_TTC_ALTERNA"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX CEE</th>
+            <th><span id="PRIX_CEE_ALTERNA"></span></th>
+            <th></th>
+            <th>20%</th>
+            <th></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>BUDGET TOTAL HTVA</th>
+            <th></th>
+            <th><span id="SOMME_ANNUEL_ALTERNA"></span></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <!------------------------------------------>
+        </thead>
+        <tbody id="details">
+        </tbody>
+      </table>
+    </div>
+
+    <hr><img src="primeo.png">
+    <hr>
+
+
+    <div id="payementList">
+      <table class="form-group col-xs-12">
+        <thead>
+          <!------------------------------------------>
+          <tr>
+            <th>PART FOURNISSEUR</th>
+            <th>PRIX UNITAIRES</th>
+            <th>BUDGET ANNUEL HTVA</th>
+            <th>TVA APPLICABLE</th>
+            <th>BUDGET TTC</th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>ABONNEMENT</th>
+            <th><span id="ABONNEMENT_PRIMEO"></span></th>
+            <th><span id="BUDGET_ANNUEL_PRIMEO"></span></th>
+            <th>20%</th>
+            <th>  <span id="BUDGET_ANNUEL_TTC_PRIMEO"></span>     </th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX POINTES</th>
+            <th><span id="PRIX_POINTES_PRIMEO"></span></th>
+            <th><span id="PRIX_POINTES_ANNNUEL_PRIMEO"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_POINTES_ANNNUEL_TTC_PRIMEO"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX HPH €/MWh</th>
+            <th><span id="PRIX_HPH_PRIMEO"></span></th>
+            <th><span id="PRIX_HPH_ANNUEL_PRIMEO"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HPH_ANNUEL_TTC_PRIMEO"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>Prix HCH €/MWh</th>
+            <th><span id="PRIX_HCH_PRIMEO"></span></th>
+            <th><span id="PRIX_HCH_ANNUEL_PRIMEO"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HCH_ANNUEL_TTC_PRIMEO"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX HPE €/MWh</th>
+            <th><span id="PRIX_HPE_PRIMEO"></span></th>
+            <th><span id="PRIX_HPE_ANNUEL_PRIMEO"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HPE_ANNUEL_TTC_PRIMEO"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX HCE €/MWh</th>
+            <th><span id="PRIX_HCE_PRIMEO"></span></th>
+            <th><span id="PRIX_HCE_ANNUEL_PRIMEO"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_HCE_ANNUEL_TTC_PRIMEO"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX CAPACITÉ</th>
+            <th><span id="PRIX_CAPACITE_PRIMEO"></span></th>
+            <th><span id="PRIX_CAPACITE_ANNUEL_PRIMEO"></span></th>
+            <th>20%</th>
+            <th><span id="PRIX_CAPACITE_ANNUEL_TTC_PRIMEO"></span></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>PRIX CEE</th>
+            <th><span id="PRIX_CEE_PRIMEO"></span></th>
+            <th></th>
+            <th>20%</th>
+            <th></th>
+          </tr>
+          <!------------------------------------------>
+          <tr>
+            <th>BUDGET TOTAL HTVA</th>
+            <th></th>
+            <th><span id="SOMME_ANNUEL_PRIMEO"></span></th>
+            <th></th>
+            <th></th>
+          </tr>
+          <!------------------------------------------>
+        </thead>
+        <tbody id="details">
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+
+
+
+
+  </div> <!-- /container -->
+  <script src="static/js/jquery-1.11.0.min.js"></script>
+  <script src="static/js/bootstrap-3.3.1.min.js"></script>
+
+  <script>
+    
+      var Prix_unitaires_Abonnement_EDF = 96.03;
+      var Prix_unitaires_Pointes_EDF = 119.3;
+      var Prix_unitaires_HPH_EDF = 91.24;
+      var Prix_unitaires_HCH_EDF = 51.90;
+      var Prix_unitaires_HPE_EDF = 58.24;
+      var Prix_unitaires_HCE_EDF = 41.51;
+      var Prix_unitaires_CAPACITE_EDF = 0;
+      var Prix_unitaires_CEE_EDF = 0;
+      var Prix_unitaires_Abonnement_Annuel_EDF =  Prix_unitaires_Abonnement_EDF * 12 ;
+      var Prix_unitaires_Abonnement_Annuel_TTC_EDF = Prix_unitaires_Abonnement_Annuel_EDF + (Prix_unitaires_Abonnement_Annuel_EDF * 0.2);
+
+      document.getElementById('ABONNEMENT_EDF').innerHTML = Prix_unitaires_Abonnement_EDF;
+      document.getElementById('PRIX_POINTES_EDF').innerHTML = Prix_unitaires_Pointes_EDF;
+      document.getElementById('PRIX_HPH_EDF').innerHTML = Prix_unitaires_HPH_EDF;
+      document.getElementById('PRIX_HCH_EDF').innerHTML = Prix_unitaires_HCH_EDF;
+      document.getElementById('PRIX_HPE_EDF').innerHTML = Prix_unitaires_HPE_EDF;
+      document.getElementById('PRIX_HCE_EDF').innerHTML = Prix_unitaires_HCE_EDF;
+      document.getElementById('PRIX_CAPACITE_EDF').innerHTML = Prix_unitaires_CAPACITE_EDF;
+      document.getElementById('PRIX_CEE_EDF').innerHTML = Prix_unitaires_CEE_EDF;
+      document.getElementById('BUDGET_ANNUEL_EDF').innerHTML = Prix_unitaires_Abonnement_Annuel_EDF.toFixed(2);
+      document.getElementById('BUDGET_ANNUEL_TTC_EDF').innerHTML = Prix_unitaires_Abonnement_Annuel_TTC_EDF.toFixed(2);
+
+
+      var Prix_unitaires_Abonnement_ALTERNA = 0;
+      var Prix_unitaires_Pointes_ALTERNA = 47.34;
+      var Prix_unitaires_HPH_ALTERNA = 47.34;
+      var Prix_unitaires_HCH_ALTERNA = 47.34;
+      var Prix_unitaires_HPE_ALTERNA = 47.34;
+      var Prix_unitaires_HCE_ALTERNA = 47.34;
+      var Prix_unitaires_CAPACITE_ALTERNA = 0.24;
+      var Prix_unitaires_CEE_ALTERNA = 0;
+
+      var Prix_unitaires_Abonnement_Annuel_ALTERNA =  Prix_unitaires_Abonnement_ALTERNA * 12 ;
+      var Prix_unitaires_Abonnement_Annuel_TTC_ALTERNA = Prix_unitaires_Abonnement_Annuel_ALTERNA + (Prix_unitaires_Abonnement_Annuel_ALTERNA * 0.2);
+      
+
+
+        document.getElementById('ABONNEMENT_ALTERNA').innerHTML = Prix_unitaires_Abonnement_ALTERNA;
+        document.getElementById('PRIX_POINTES_ALTERNA').innerHTML = Prix_unitaires_Pointes_ALTERNA;
+        document.getElementById('PRIX_HPH_ALTERNA').innerHTML = Prix_unitaires_HPH_ALTERNA;
+        document.getElementById('PRIX_HCH_ALTERNA').innerHTML = Prix_unitaires_HCH_ALTERNA;
+        document.getElementById('PRIX_HPE_ALTERNA').innerHTML = Prix_unitaires_HPE_ALTERNA;
+        document.getElementById('PRIX_HCE_ALTERNA').innerHTML = Prix_unitaires_HCE_ALTERNA;
+        document.getElementById('PRIX_CAPACITE_ALTERNA').innerHTML = Prix_unitaires_CAPACITE_ALTERNA;
+        document.getElementById('PRIX_CEE_ALTERNA').innerHTML = Prix_unitaires_CEE_ALTERNA;
+        document.getElementById('BUDGET_ANNUEL_ALTERNA').innerHTML = Prix_unitaires_Abonnement_Annuel_ALTERNA.toFixed(2);
+        document.getElementById('BUDGET_ANNUEL_TTC_ALTERNA').innerHTML = Prix_unitaires_Abonnement_Annuel_TTC_ALTERNA.toFixed(2);
+
+
+        var Prix_unitaires_Abonnement_PRIMEO = 0;
+        var Prix_unitaires_Pointes_PRIMEO = 77.10;
+        var Prix_unitaires_HPH_PRIMEO = 64.62;
+        var Prix_unitaires_HCH_PRIMEO = 42.21;
+        var Prix_unitaires_HPE_PRIMEO = 45.89;
+        var Prix_unitaires_HCE_PRIMEO = 34.94;
+        var Prix_unitaires_CAPACITE_PRIMEO = 0;
+        var Prix_unitaires_CEE_PRIMEO = 0;
+
+        var Prix_unitaires_Abonnement_Annuel_PRIMEO =  Prix_unitaires_Abonnement_PRIMEO * 12 ;
+        var Prix_unitaires_Abonnement_Annuel_TTC_PRIMEO = Prix_unitaires_Abonnement_Annuel_PRIMEO + (Prix_unitaires_Abonnement_Annuel_PRIMEO * 0.2);
+      
+
+
+        document.getElementById('ABONNEMENT_PRIMEO').innerHTML = Prix_unitaires_Abonnement_PRIMEO;
+        document.getElementById('PRIX_POINTES_PRIMEO').innerHTML = Prix_unitaires_Pointes_PRIMEO;
+        document.getElementById('PRIX_HPH_PRIMEO').innerHTML = Prix_unitaires_HPH_PRIMEO;
+        document.getElementById('PRIX_HCH_PRIMEO').innerHTML = Prix_unitaires_HCH_PRIMEO;
+        document.getElementById('PRIX_HPE_PRIMEO').innerHTML = Prix_unitaires_HPE_PRIMEO;
+        document.getElementById('PRIX_HCE_PRIMEO').innerHTML = Prix_unitaires_HCE_PRIMEO;
+        document.getElementById('PRIX_CAPACITE_PRIMEO').innerHTML = Prix_unitaires_CAPACITE_PRIMEO;
+        document.getElementById('PRIX_CEE_PRIMEO').innerHTML = Prix_unitaires_CEE_PRIMEO;
+        document.getElementById('BUDGET_ANNUEL_PRIMEO').innerHTML = Prix_unitaires_Abonnement_Annuel_PRIMEO.toFixed(2);
+        document.getElementById('BUDGET_ANNUEL_TTC_PRIMEO').innerHTML = Prix_unitaires_Abonnement_Annuel_TTC_PRIMEO.toFixed(2);
+
+
+
+
+
+       function energie()
+      
+       {
+
+        var CONSOMMATIONS_POINTES_EDF= Number(document.getElementById('CONSOMMATIONS_POINTES').value);
+        var Prix_unitaires_Abonnement_Annuel_Pointes_EDF =  CONSOMMATIONS_POINTES_EDF *  Prix_unitaires_Pointes_EDF ; 
+        var Prix_unitaires_Abonnement_Annuel_Pointes_TTC_EDF =  Prix_unitaires_Abonnement_Annuel_Pointes_EDF + (Prix_unitaires_Abonnement_Annuel_Pointes_EDF * 0.2)
+        document.getElementById('PRIX_POINTES_ANNNUEL_EDF').innerHTML = Prix_unitaires_Abonnement_Annuel_Pointes_EDF.toFixed(2);
+        document.getElementById('PRIX_POINTES_ANNNUEL_TTC_EDF').innerHTML = Prix_unitaires_Abonnement_Annuel_Pointes_TTC_EDF.toFixed(2);
+       
+        var  PRIX_HPH_EDF=Number(document.getElementById('CONSOMMATIONS_HPH').value);
+        var  PRIX_HPH_ANNUEL_EDF = Prix_unitaires_HPH_EDF * PRIX_HPH_EDF ;
+        var  PRIX_HPH_ANNUEL_TTC_EDF =PRIX_HPH_ANNUEL_EDF +  ( PRIX_HPH_ANNUEL_EDF * 0.2 )  ;
+        document.getElementById('PRIX_HPH_ANNUEL_EDF').innerHTML = PRIX_HPH_ANNUEL_EDF.toFixed(2);
+        document.getElementById('PRIX_HPH_ANNUEL_TTC_EDF').innerHTML = PRIX_HPH_ANNUEL_TTC_EDF.toFixed(2);
+       
+
+        var  PRIX_HCH_EDF=Number(document.getElementById('CONSOMMATIONS_HCH').value);
+        var  PRIX_HCH_ANNUEL_EDF = Prix_unitaires_HCH_EDF * PRIX_HCH_EDF ;
+        var  PRIX_HCH_ANNUEL_TTC_EDF =PRIX_HCH_ANNUEL_EDF +  ( PRIX_HCH_ANNUEL_EDF * 0.2 )  ;
+        document.getElementById('PRIX_HCH_ANNUEL_EDF').innerHTML = PRIX_HCH_ANNUEL_EDF.toFixed(2);
+        document.getElementById('PRIX_HCH_ANNUEL_TTC_EDF').innerHTML = PRIX_HCH_ANNUEL_TTC_EDF.toFixed(2);
+
+
+        var  PRIX_HPE_EDF=Number(document.getElementById('CONSOMMATIONS_HPE').value);
+        var  PRIX_HPE_ANNUEL_EDF = Prix_unitaires_HPE_EDF * PRIX_HPE_EDF ;
+        var  PRIX_HPE_ANNUEL_TTC_EDF =PRIX_HPE_ANNUEL_EDF +  ( PRIX_HPE_ANNUEL_EDF * 0.2 )  ;
+        document.getElementById('PRIX_HPE_ANNUEL_EDF').innerHTML = PRIX_HPE_ANNUEL_EDF.toFixed(2);
+        document.getElementById('PRIX_HPE_ANNUEL_TTC_EDF').innerHTML = PRIX_HPE_ANNUEL_TTC_EDF.toFixed(2);
+
+
+        var  PRIX_HCE_EDF=Number(document.getElementById('CONSOMMATIONS_HCE').value);
+        var  PRIX_HCE_ANNUEL_EDF = Prix_unitaires_HCE_EDF * PRIX_HCE_EDF ;
+        var  PRIX_HCE_ANNUEL_TTC_EDF =PRIX_HCE_ANNUEL_EDF +  ( PRIX_HCE_ANNUEL_EDF * 0.2 )  ;
+        document.getElementById('PRIX_HCE_ANNUEL_EDF').innerHTML = PRIX_HCE_ANNUEL_EDF.toFixed(2);
+        document.getElementById('PRIX_HCE_ANNUEL_TTC_EDF').innerHTML = PRIX_HCE_ANNUEL_TTC_EDF.toFixed(2);
+
+
+        var  PRIX_CAPACITE_EDF=Number(document.getElementById('CONSOMMATIONS_CAR').value);
+        var  PRIX_CAPACITE_ANNUEL_EDF = Prix_unitaires_CAPACITE_EDF * PRIX_CAPACITE_EDF ;
+        var  PRIX_CAPACITE_ANNUEL_TTC_EDF =PRIX_CAPACITE_ANNUEL_EDF +  ( PRIX_CAPACITE_ANNUEL_EDF * 0.2 )  ;
+        document.getElementById('PRIX_CAPACITE_ANNUEL_EDF').innerHTML = PRIX_CAPACITE_ANNUEL_EDF.toFixed(2);
+        document.getElementById('PRIX_CAPACITE_ANNUEL_TTC_EDF').innerHTML = PRIX_CAPACITE_ANNUEL_TTC_EDF.toFixed(2);
+
+       var SOMME_ANNUEL_EDF = PRIX_CAPACITE_ANNUEL_EDF + PRIX_HCE_ANNUEL_EDF + PRIX_HPE_ANNUEL_EDF + PRIX_HCH_ANNUEL_EDF + PRIX_HPH_ANNUEL_EDF  + Prix_unitaires_Abonnement_Annuel_Pointes_EDF +Prix_unitaires_Abonnement_Annuel_EDF ;
+       document.getElementById('SOMME_ANNUEL_EDF').innerHTML = SOMME_ANNUEL_EDF.toFixed(2);
+
+
+
+
+
+
+
+
+
+
+        var CONSOMMATIONS_POINTES_ALTERNA= Number(document.getElementById('CONSOMMATIONS_POINTES').value);
+        var Prix_unitaires_Abonnement_Annuel_Pointes_ALTERNA =  CONSOMMATIONS_POINTES_ALTERNA *  Prix_unitaires_Pointes_ALTERNA ; 
+        var Prix_unitaires_Abonnement_Annuel_Pointes_TTC_ALTERNA =  Prix_unitaires_Abonnement_Annuel_Pointes_ALTERNA + (Prix_unitaires_Abonnement_Annuel_Pointes_ALTERNA * 0.2)
+        document.getElementById('PRIX_POINTES_ANNNUEL_ALTERNA').innerHTML = Prix_unitaires_Abonnement_Annuel_Pointes_ALTERNA.toFixed(2);
+        document.getElementById('PRIX_POINTES_ANNNUEL_TTC_ALTERNA').innerHTML = Prix_unitaires_Abonnement_Annuel_Pointes_TTC_ALTERNA.toFixed(2);
+       
+        var  PRIX_HPH_ALTERNA=Number(document.getElementById('CONSOMMATIONS_HPH').value);
+        var  PRIX_HPH_ANNUEL_ALTERNA = Prix_unitaires_HPH_ALTERNA * PRIX_HPH_ALTERNA ;
+        var  PRIX_HPH_ANNUEL_TTC_ALTERNA =PRIX_HPH_ANNUEL_ALTERNA +  ( PRIX_HPH_ANNUEL_ALTERNA * 0.2 )  ;
+        document.getElementById('PRIX_HPH_ANNUEL_ALTERNA').innerHTML = PRIX_HPH_ANNUEL_ALTERNA.toFixed(2);
+        document.getElementById('PRIX_HPH_ANNUEL_TTC_ALTERNA').innerHTML = PRIX_HPH_ANNUEL_TTC_ALTERNA.toFixed(2);
+       
+
+        var  PRIX_HCH_ALTERNA=Number(document.getElementById('CONSOMMATIONS_HCH').value);
+        var  PRIX_HCH_ANNUEL_ALTERNA = Prix_unitaires_HCH_ALTERNA * PRIX_HCH_ALTERNA ;
+        var  PRIX_HCH_ANNUEL_TTC_ALTERNA =PRIX_HCH_ANNUEL_ALTERNA +  ( PRIX_HCH_ANNUEL_ALTERNA * 0.2 )  ;
+        document.getElementById('PRIX_HCH_ANNUEL_ALTERNA').innerHTML = PRIX_HCH_ANNUEL_ALTERNA.toFixed(2);
+        document.getElementById('PRIX_HCH_ANNUEL_TTC_ALTERNA').innerHTML = PRIX_HCH_ANNUEL_TTC_ALTERNA.toFixed(2);
+
+
+        var  PRIX_HPE_ALTERNA=Number(document.getElementById('CONSOMMATIONS_HPE').value);
+        var  PRIX_HPE_ANNUEL_ALTERNA = Prix_unitaires_HPE_ALTERNA * PRIX_HPE_ALTERNA ;
+        var  PRIX_HPE_ANNUEL_TTC_ALTERNA =PRIX_HPE_ANNUEL_ALTERNA +  ( PRIX_HPE_ANNUEL_ALTERNA * 0.2 )  ;
+        document.getElementById('PRIX_HPE_ANNUEL_ALTERNA').innerHTML = PRIX_HPE_ANNUEL_ALTERNA.toFixed(2);
+        document.getElementById('PRIX_HPE_ANNUEL_TTC_ALTERNA').innerHTML = PRIX_HPE_ANNUEL_TTC_ALTERNA.toFixed(2);
+
+
+        var  PRIX_HCE_ALTERNA=Number(document.getElementById('CONSOMMATIONS_HCE').value);
+        var  PRIX_HCE_ANNUEL_ALTERNA = Prix_unitaires_HCE_ALTERNA * PRIX_HCE_ALTERNA ;
+        var  PRIX_HCE_ANNUEL_TTC_ALTERNA =PRIX_HCE_ANNUEL_ALTERNA +  ( PRIX_HCE_ANNUEL_ALTERNA * 0.2 )  ;
+        document.getElementById('PRIX_HCE_ANNUEL_ALTERNA').innerHTML = PRIX_HCE_ANNUEL_ALTERNA.toFixed(2);
+        document.getElementById('PRIX_HCE_ANNUEL_TTC_ALTERNA').innerHTML = PRIX_HCE_ANNUEL_TTC_ALTERNA.toFixed(2);
+
+
+        var  PRIX_CAPACITE_ALTERNA=Number(document.getElementById('CONSOMMATIONS_CAR').value);
+        var  PRIX_CAPACITE_ANNUEL_ALTERNA = Prix_unitaires_CAPACITE_ALTERNA * PRIX_CAPACITE_ALTERNA ;
+        var  PRIX_CAPACITE_ANNUEL_TTC_ALTERNA =PRIX_CAPACITE_ANNUEL_ALTERNA +  ( PRIX_CAPACITE_ANNUEL_ALTERNA * 0.2 )  ;
+        document.getElementById('PRIX_CAPACITE_ANNUEL_ALTERNA').innerHTML = PRIX_CAPACITE_ANNUEL_ALTERNA.toFixed(2);
+        document.getElementById('PRIX_CAPACITE_ANNUEL_TTC_ALTERNA').innerHTML = PRIX_CAPACITE_ANNUEL_TTC_ALTERNA.toFixed(2);
+
+       var SOMME_ANNUEL_ALTERNA = PRIX_CAPACITE_ANNUEL_ALTERNA + PRIX_HCE_ANNUEL_ALTERNA + PRIX_HPE_ANNUEL_ALTERNA + PRIX_HCH_ANNUEL_ALTERNA + PRIX_HPH_ANNUEL_ALTERNA  + Prix_unitaires_Abonnement_Annuel_Pointes_ALTERNA +Prix_unitaires_Abonnement_Annuel_ALTERNA ;
+       document.getElementById('SOMME_ANNUEL_ALTERNA').innerHTML = SOMME_ANNUEL_ALTERNA.toFixed(2);
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        var CONSOMMATIONS_POINTES_PRIMEO= Number(document.getElementById('CONSOMMATIONS_POINTES').value);
+        var Prix_unitaires_Abonnement_Annuel_Pointes_PRIMEO =  CONSOMMATIONS_POINTES_PRIMEO *  Prix_unitaires_Pointes_PRIMEO ; 
+        var Prix_unitaires_Abonnement_Annuel_Pointes_TTC_PRIMEO =  Prix_unitaires_Abonnement_Annuel_Pointes_PRIMEO + (Prix_unitaires_Abonnement_Annuel_Pointes_PRIMEO * 0.2)
+        document.getElementById('PRIX_POINTES_ANNNUEL_PRIMEO').innerHTML = Prix_unitaires_Abonnement_Annuel_Pointes_PRIMEO.toFixed(2);
+        document.getElementById('PRIX_POINTES_ANNNUEL_TTC_PRIMEO').innerHTML = Prix_unitaires_Abonnement_Annuel_Pointes_TTC_PRIMEO.toFixed(2);
+
+        var  PRIX_HPH_PRIMEO=Number(document.getElementById('CONSOMMATIONS_HPH').value);
+        var  PRIX_HPH_ANNUEL_PRIMEO = Prix_unitaires_HPH_PRIMEO * PRIX_HPH_PRIMEO ;
+        var  PRIX_HPH_ANNUEL_TTC_PRIMEO =PRIX_HPH_ANNUEL_PRIMEO +  ( PRIX_HPH_ANNUEL_PRIMEO * 0.2 )  ;
+        document.getElementById('PRIX_HPH_ANNUEL_PRIMEO').innerHTML = PRIX_HPH_ANNUEL_PRIMEO.toFixed(2);
+        document.getElementById('PRIX_HPH_ANNUEL_TTC_PRIMEO').innerHTML = PRIX_HPH_ANNUEL_TTC_PRIMEO.toFixed(2);
+
+
+        var  PRIX_HCH_PRIMEO=Number(document.getElementById('CONSOMMATIONS_HCH').value);
+        var  PRIX_HCH_ANNUEL_PRIMEO = Prix_unitaires_HCH_PRIMEO * PRIX_HCH_PRIMEO ;
+        var  PRIX_HCH_ANNUEL_TTC_PRIMEO =PRIX_HCH_ANNUEL_PRIMEO +  ( PRIX_HCH_ANNUEL_PRIMEO * 0.2 )  ;
+        document.getElementById('PRIX_HCH_ANNUEL_PRIMEO').innerHTML = PRIX_HCH_ANNUEL_PRIMEO.toFixed(2);
+        document.getElementById('PRIX_HCH_ANNUEL_TTC_PRIMEO').innerHTML = PRIX_HCH_ANNUEL_TTC_PRIMEO.toFixed(2);
+
+
+        var  PRIX_HPE_PRIMEO=Number(document.getElementById('CONSOMMATIONS_HPE').value);
+        var  PRIX_HPE_ANNUEL_PRIMEO = Prix_unitaires_HPE_PRIMEO * PRIX_HPE_PRIMEO ;
+        var  PRIX_HPE_ANNUEL_TTC_PRIMEO =PRIX_HPE_ANNUEL_PRIMEO +  ( PRIX_HPE_ANNUEL_PRIMEO * 0.2 )  ;
+        document.getElementById('PRIX_HPE_ANNUEL_PRIMEO').innerHTML = PRIX_HPE_ANNUEL_PRIMEO.toFixed(2);
+        document.getElementById('PRIX_HPE_ANNUEL_TTC_PRIMEO').innerHTML = PRIX_HPE_ANNUEL_TTC_PRIMEO.toFixed(2);
+
+
+        var  PRIX_HCE_PRIMEO=Number(document.getElementById('CONSOMMATIONS_HCE').value);
+        var  PRIX_HCE_ANNUEL_PRIMEO = Prix_unitaires_HCE_PRIMEO * PRIX_HCE_PRIMEO ;
+        var  PRIX_HCE_ANNUEL_TTC_PRIMEO =PRIX_HCE_ANNUEL_PRIMEO +  ( PRIX_HCE_ANNUEL_PRIMEO * 0.2 )  ;
+        document.getElementById('PRIX_HCE_ANNUEL_PRIMEO').innerHTML = PRIX_HCE_ANNUEL_PRIMEO.toFixed(2);
+        document.getElementById('PRIX_HCE_ANNUEL_TTC_PRIMEO').innerHTML = PRIX_HCE_ANNUEL_TTC_PRIMEO.toFixed(2);
+
+
+        var  PRIX_CAPACITE_PRIMEO=Number(document.getElementById('CONSOMMATIONS_CAR').value);
+        var  PRIX_CAPACITE_ANNUEL_PRIMEO = Prix_unitaires_CAPACITE_PRIMEO * PRIX_CAPACITE_PRIMEO ;
+        var  PRIX_CAPACITE_ANNUEL_TTC_PRIMEO =PRIX_CAPACITE_ANNUEL_PRIMEO +  ( PRIX_CAPACITE_ANNUEL_PRIMEO * 0.2 )  ;
+        document.getElementById('PRIX_CAPACITE_ANNUEL_PRIMEO').innerHTML = PRIX_CAPACITE_ANNUEL_PRIMEO.toFixed(2);
+        document.getElementById('PRIX_CAPACITE_ANNUEL_TTC_PRIMEO').innerHTML = PRIX_CAPACITE_ANNUEL_TTC_PRIMEO.toFixed(2);
+
+        var SOMME_ANNUEL_PRIMEO = PRIX_CAPACITE_ANNUEL_PRIMEO + PRIX_HCE_ANNUEL_PRIMEO + PRIX_HPE_ANNUEL_PRIMEO + PRIX_HCH_ANNUEL_PRIMEO + PRIX_HPH_ANNUEL_PRIMEO  + Prix_unitaires_Abonnement_Annuel_Pointes_PRIMEO +Prix_unitaires_Abonnement_Annuel_PRIMEO ;
+        document.getElementById('SOMME_ANNUEL_PRIMEO').innerHTML = SOMME_ANNUEL_PRIMEO.toFixed(2);
+
+
+
+
+       
+       }
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
